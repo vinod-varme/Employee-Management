@@ -9,6 +9,7 @@ public class EmployeeDto {
     public String designation;
     public Double salary;
 
+
     public Long getId() {
         return id;
     }
