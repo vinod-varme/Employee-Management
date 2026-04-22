@@ -23,7 +23,7 @@ public class EmployeeService {
         return repo.save(emploee);
     }
 
-    public List<EmployeeDto> getListOfEmployees() {
+    public Flux<EmployeeDto> getListOfEmployees() {
         Flux<Employee> employeeList= repo.findAll();
         return employeeAdapter.mapEmployeeEntityToDto(employeeList);
     }
@@ -31,6 +31,21 @@ public class EmployeeService {
     public Mono<EmployeeDto> getEmployeeById(Long id) {
         Mono<Employee> emp= repo.findById(id);
         return employeeAdapter.mapEmployeeEntityToEmployeeDto(emp);
+//
+//       Calling the procedure
+//        return client.sql("SELECT * FROM get_employee_by_id(:id)")
+//                .bind("id", id)
+//                .map((row, meta) -> {
+//                    EmployeeEntity e = new EmployeeEntity();
+//                    e.setId(row.get("id", Long.class));
+//                    e.setName(row.get("name", String.class));
+//                    e.setDesignation(row.get("designation", String.class));
+//                    e.setSalary(row.get("salary", Double.class));
+//                    return e;
+//                })
+//                .one();
+
+
     }
 
     public Mono<Employee> updateEmployeeById(Long id, Employee emp) {

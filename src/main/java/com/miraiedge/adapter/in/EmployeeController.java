@@ -4,8 +4,8 @@ import com.miraiedge.adapter.in.dto.EmployeeDto;
 import com.miraiedge.domain.Employee;
 import com.miraiedge.service.EmployeeService;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
 import java.util.List;
 
 @RestController
@@ -23,7 +23,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/getListOfEmployees")
-    public List<EmployeeDto> getListOfEmployees() {
+    public Flux<EmployeeDto> getListOfEmployees() {
         return service.getListOfEmployees();
     }
 

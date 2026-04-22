@@ -12,24 +12,22 @@ public class EmployeeAdapter {
 
     public Employee mapRequestDtoToEmployee(EmployeeDto employeeDto) {
         Employee employee=new Employee();
-        employee.setId(employeeDto.getId());
+       // employee.setId(employeeDto.getId());
         employee.setEmployeeName(employeeDto.getEmployeeName());
         employee.setDesignation(employeeDto.getDesignation());
         employee.setSalary(employeeDto.getSalary());
         return employee;
     }
 
-    public List<EmployeeDto> mapEmployeeEntityToDto(Flux<Employee> employeeList) {
-        List<EmployeeDto> listEmployeeDto=new ArrayList<>();
-        for(Employee emp:employeeList.toIterable()){
-            EmployeeDto  employeeDto=new EmployeeDto();
-            employeeDto.setId(emp.getId());
-            employeeDto.setEmployeeName(emp.getEmployeeName());
-            employeeDto.setDesignation(emp.getDesignation());
-            employeeDto.setSalary(emp.getSalary());
-            listEmployeeDto.add(employeeDto);
-        }
-        return listEmployeeDto;
+    public Flux<EmployeeDto> mapEmployeeEntityToDto(Flux<Employee> employeeList) {
+        return employeeList.map(emp -> {
+            EmployeeDto dto = new EmployeeDto();
+            dto.setId(emp.getId());
+            dto.setEmployeeName(emp.getEmployeeName());
+            dto.setDesignation(emp.getDesignation());
+            dto.setSalary(emp.getSalary());
+            return dto;
+        });
     }
 
     public Mono<EmployeeDto> mapEmployeeEntityToEmployeeDto(Mono<Employee> emp) {

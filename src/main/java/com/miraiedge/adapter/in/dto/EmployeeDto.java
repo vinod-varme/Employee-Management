@@ -1,5 +1,8 @@
 package com.miraiedge.adapter.in.dto;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonPropertyOrder({"id", "employeeName", "designation", "salary"})
 public class EmployeeDto {
     public Long id;
     public String employeeName;
