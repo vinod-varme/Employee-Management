@@ -5,6 +5,16 @@ public class Employee {
    public String employeeName;
    public String designation;
    public Double salary;
+   public String jsonData;
+
+   public String getJsonData() {
+      return jsonData;
+   }
+
+   public void setJsonData(String jsonData) {
+      this.jsonData = jsonData;
+   }
+
 
    public Long getId() {
       return id;

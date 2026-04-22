@@ -9,6 +9,15 @@ public class EmployeeDto {
     public String designation;
     public Double salary;
 
+    public String getJsonData() {
+        return jsonData;
+    }
+
+    public void setJsonData(String jsonData) {
+        this.jsonData = jsonData;
+    }
+
+    public String jsonData;
 
     public Long getId() {
         return id;

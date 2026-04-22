@@ -10,6 +10,15 @@ public class EmployeeEntity {
     private String name;
     private String designation;
     private Double salary;
+    public String jsondata;
+
+    public String getJsonData() {
+        return jsondata;
+    }
+
+    public void setJsonData(String jsonData) {
+        this.jsondata = jsonData;
+    }
 
     public Long getId() {
         return id;

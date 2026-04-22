@@ -4,9 +4,6 @@ import com.miraiedge.domain.Employee;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.util.ArrayList;
-import java.util.List;
 @Component
 public class EmployeeAdapter {
 
@@ -16,6 +13,7 @@ public class EmployeeAdapter {
         employee.setEmployeeName(employeeDto.getEmployeeName());
         employee.setDesignation(employeeDto.getDesignation());
         employee.setSalary(employeeDto.getSalary());
+        employee.setJsonData(employeeDto.getJsonData());
         return employee;
     }
 
@@ -26,6 +24,7 @@ public class EmployeeAdapter {
             dto.setEmployeeName(emp.getEmployeeName());
             dto.setDesignation(emp.getDesignation());
             dto.setSalary(emp.getSalary());
+            dto.setJsonData(emp.getJsonData());
             return dto;
         });
     }
@@ -37,6 +36,7 @@ public class EmployeeAdapter {
             dto.setEmployeeName(employee.getEmployeeName());
             dto.setDesignation(employee.getDesignation());
             dto.setSalary(employee.getSalary());
+            dto.setJsonData(employee.getJsonData());
             return dto;
         });
     }
