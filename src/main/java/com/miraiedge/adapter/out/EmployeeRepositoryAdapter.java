@@ -2,6 +2,7 @@ package com.miraiedge.adapter.out;
 
 import com.miraiedge.domain.Employee;
 import com.miraiedge.port.EmployeeRepositoryPort;
+import org.springframework.r2dbc.core.DatabaseClient;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -9,9 +10,10 @@ import reactor.core.publisher.Mono;
 public class EmployeeRepositoryAdapter implements EmployeeRepositoryPort {
 
     private final EmployeeRepository repo;
-
-    public EmployeeRepositoryAdapter(EmployeeRepository repo) {
+    private final DatabaseClient client;
+    public EmployeeRepositoryAdapter(EmployeeRepository repo,DatabaseClient client) {
         this.repo = repo;
+        this.client = client;
     }
 
     @Override
@@ -53,4 +55,10 @@ public class EmployeeRepositoryAdapter implements EmployeeRepositoryPort {
         return emp;
     }
 
+    @Override
+    public Mono<Long> getEmployeeCount() {
+        return client.sql("SELECT getEmployeeCount()")
+                .map((row, meta) -> row.get(0, Long.class))
+                .one();
+    }
 }

@@ -12,4 +12,6 @@ public interface EmployeeRepositoryPort {
     Mono<Employee> findById(Long id);
 
     Mono<Void> deleteById(Long id);
+
+    public Mono<Long> getEmployeeCount();
 }

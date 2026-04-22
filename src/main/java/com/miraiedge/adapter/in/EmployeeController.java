@@ -42,4 +42,9 @@ public class EmployeeController {
     public Mono<Void> deleteEmployeeById(@PathVariable Long id) {
         return service.deleteEmployeeById(id);
     }
+
+    @GetMapping("/getEmployeeCount")
+    public Mono<Long> getEmployeeCount() {
+        return service.getEmployeeCount();
+    }
 }

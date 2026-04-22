@@ -61,4 +61,9 @@ public class EmployeeService {
     public Mono<Void> deleteEmployeeById(Long id) {
         return repo.deleteById(id);
     }
+
+    public Mono<Long> getEmployeeCount(){
+        return repo.getEmployeeCount();
+    };
+
 }
