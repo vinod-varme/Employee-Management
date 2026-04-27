@@ -53,7 +53,7 @@ public class EmployeeRepositoryAdapter implements EmployeeRepositoryPort {
 
     private EmployeeEntity toEntity(Employee emp) {
         EmployeeEntity e = new EmployeeEntity();
-        e.setId(emp.getId());
+//        e.setId(emp.getId());
         e.setName(emp.employeeName);
         e.setDesignation(emp.designation);
         e.setSalary(emp.getSalary());

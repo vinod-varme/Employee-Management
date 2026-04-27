@@ -3,7 +3,7 @@ package com.miraiedge.adapter.out;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
-@Table("employeeData")
+@Table("employeedata")
 public class EmployeeEntity {
     @Id
     private Long id;
